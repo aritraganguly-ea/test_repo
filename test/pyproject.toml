@@ -1,0 +1,32 @@
+[project]
+name = "tourism_indicators_etl"
+version = "1.0.0"
+description = "Automate Oman Tourism Indicators PDFs Scraping using LLMs."
+keywords = ["Python", "ETL", "LLMs", "OpenAI"]
+requires-python = ">=3.12"
+dependencies = ["openai==0.28", "pandas", "pdfminer.six", "boto3"]
+
+[[project.authors]]
+name = "Aritra Ganguly"
+email = "aritraganguly.in@protonmail.com"
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[project.scripts]
+run_tourism_indicators_etl = "tourism_indicators_etl.main:run_etl"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+filterwarnings = ["ignore::FutureWarning"]
+
+[dependency-groups]
+dev = ["mypy>=1.11.2", "python-dotenv", "ruff"]
+lint = ["ruff"]
